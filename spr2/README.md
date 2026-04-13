@@ -1,6 +1,15 @@
 # Sprawozdanie 2
 ## Opis Dockerfile
 
+```dockerfile
+COPY <<EOF /app/index.template.html
+<h1>Sprawozdanie 2</h1>
+<p>IP: {{IP}}</p>
+<p>Hostname: {{HOST}}</p>
+<p>Version: {{VERSION}}</p>
+EOF
+```
+
 ## Użyte komendy
 ### Polecenie użyte do budowy obrazu
 ```bash
