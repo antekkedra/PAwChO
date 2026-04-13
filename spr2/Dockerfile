@@ -1,6 +1,3 @@
-########################
-# Stage 1 – builder
-########################
 FROM scratch AS builder
 ADD alpine-minirootfs-3.23.3-x86_64.tar /
 
