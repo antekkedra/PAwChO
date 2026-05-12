@@ -42,6 +42,8 @@ docker buildx imagetools inspect antek03/pawcho:latest
 ```
 <img width="1314" height="634" alt="image" src="https://github.com/user-attachments/assets/3501db7f-25fe-47ba-8fa0-afcfa165fc39" />
 <img width="933" height="1000" alt="image" src="https://github.com/user-attachments/assets/a0bf86fc-b91d-4286-95dd-5c123e99cd85" />
+Ponowne uruchomienie procesu budowania wykorzystywało dane cache zapisane w registry,
+co potwierdzają wpisy `CACHED` w logach buildx.
 
 ## Działanie aplikacji
 <img width="797" height="263" alt="image" src="https://github.com/user-attachments/assets/41c8cca4-0a7b-4cb1-b704-e01f68c4029e" />
