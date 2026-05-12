@@ -15,13 +15,13 @@ docker buildx inspect --bootstrap
 ### Budowanie
 ```bash
 docker buildx build \
-  --platform linux/amd64,linux/arm64 \
-  -t kedraantoni/weather-app:latest \
-  --push \
-  --cache-from type=registry,ref=kedraantoni/weather-app:buildcache \
-  --cache-to type=registry,ref=kedraantoni/weather-app:buildcache,mode=max \
-  --build-arg BUILDKIT_INLINE_CACHE=1 \
-  .
+        --platform linux/amd64,linux/arm64 \
+        -t antek03/pawcho:latest \
+        --push \
+        --cache-from type=registry,ref=antek03/pawcho:buildcache \
+        --cache-to type=registry,ref=antek03/pawcho:buildcache,mode=max \
+        --build-arg BUILDKIT_INLINE_CACHE=1 \
+        .
 ```
 
 Multiarch
