@@ -1,15 +1,18 @@
 # Zadanie 1, dodatkowe 2
 
+### Tworzenie buildera
 ```bash
 docker buildx create --name labbuilder --driver docker-container --use
 ```
 <img width="751" height="92" alt="image" src="https://github.com/user-attachments/assets/1e655b36-b53d-4f3e-86fe-d756ae9d3b54" />
 
+### Uruchamianie buildera
 ```bash
 docker buildx inspect --bootstrap
 ```
 <img width="936" height="1046" alt="image" src="https://github.com/user-attachments/assets/08b01998-eda4-427f-a784-915aa1422387" />
 
+### Budowanie
 ```bash
 docker buildx build \
   --platform linux/amd64,linux/arm64 \
@@ -19,6 +22,19 @@ docker buildx build \
   --cache-to type=registry,ref=kedraantoni/weather-app:buildcache,mode=max \
   --build-arg BUILDKIT_INLINE_CACHE=1 \
   .
+```
+
+Multiarch
+```bash
+--platform linux/amd64,linux/arm64
+```
+Registry cache
+```bash
+--cache-to type=registry
+```
+Inline cache
+```bash
+--build-arg BUILDKIT_INLINE_CACHE=1
 ```
 
 ```bash
