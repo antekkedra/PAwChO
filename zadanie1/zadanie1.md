@@ -1,6 +1,6 @@
 # Zadanie 1
 ## Opis aplikacji
-Opracowana aplikacja została napisana w języku Go
+Opracowana aplikacja została napisana w języku Go.
 Podczas uruchomienia aplikacja:
 - wypisuje datę i godzinę startu,
 - wyświetla dane autora,
