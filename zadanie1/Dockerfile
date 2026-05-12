@@ -42,8 +42,8 @@ COPY --from=builder /app/index.html /app/index.html
 EXPOSE 8080
 
 # Healthcheck sprawdza czy serwer działa
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD ["/app/weather-app"] || exit 1
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD ["/app/weather-app", "healthcheck"]
 
 # Uruchomienie aplikacji
 ENTRYPOINT ["/app/weather-app"]

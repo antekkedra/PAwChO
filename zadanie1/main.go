@@ -5,9 +5,9 @@ import (
     "time"
 	"net/http"
     "html/template"
-    //"io"
     "net/url"
     "encoding/json"
+    "os"
 )
 // Stałe globalne
 const (
@@ -100,13 +100,28 @@ func handler(w http.ResponseWriter, req *http.Request){
     tmpl.Execute(w, data) //Renderowanie szablonu
 }
 
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("OK"))
+}
 
 func main() {
+
+    // Obsługa healthchecka Dockera
+    if len(os.Args) > 1 && os.Args[1] == "healthcheck" {
+        resp, err := http.Get("http://localhost:8080/health")
+        if err != nil || resp.StatusCode != http.StatusOK {
+            os.Exit(1)
+        }
+        os.Exit(0)
+    }
+
     // Logi
     fmt.Println("Start:", time.Now())
 	fmt.Println("Autor:", author)
 	fmt.Println("Port:", port)
     
     http.HandleFunc("/",handler)
+    http.HandleFunc("/health", healthHandler)
     http.ListenAndServe(":"+port, nil)
 }
