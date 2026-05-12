@@ -37,6 +37,7 @@ Inline cache
 --build-arg BUILDKIT_INLINE_CACHE=1
 ```
 
+Potwierdzenie manifestu multiarch
 ```bash
 docker buildx imagetools inspect antek03/pawcho:latest
 ```
